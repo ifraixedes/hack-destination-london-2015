@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "rules": {
+    "quotes": [2, "single", "avoid-scape"],
+    "no-use-before-define": [2, "nofunc"],
+    "no-multiple-empty-lines": [2, {"max": 1}],
+    "no-nested-ternary": 2,
+    "no-space-before-semi": 2,
+    "no-trailing-spaces": 2,
+    "no-irregular-whitespace": 2,
+    "use-isnan": 2,
+    "max-len": [1, 120, 4],
+    "no-warning-comments": [2, { "terms": ["todo", "fixme", "refactor", "refactoring", "crap"], "location": "anywhere" }],
+    "new-cap": [2, { "newIsCap": true, "capIsNew": true, "capIsNewExceptions": [] }]
+  }
+}
