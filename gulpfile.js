@@ -7,6 +7,7 @@ var browserSync = require('browser-sync');
 var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var babelify = require('babelify');
+var jadeify = require('jadeify');
 var runSequence = require('run-sequence');
 
 var AUTOPREFIXER_BROWSERS = [
@@ -52,7 +53,9 @@ gulp.task('styles', function () {
   .pipe(gulp.dest('dev/public/styles'));
 });
 
-var bundler = browserify('./dev/assets/scripts/index.js', { debug: true }).transform(babelify)
+var bundler = browserify('./dev/assets/scripts/index.js', { debug: true })
+  .transform(jadeify, { cache: false, compileDebug: true, pretty: true })
+  .transform(babelify);
 gulp.task('browserify', bundle)
 bundler.on('update', bundle);
 bundler.on('log', gulpPlugins.util.log);
@@ -98,7 +101,12 @@ gulp.task('dev', ['styles', 'client-scripts', 'jslint-server'], function () {
 
   gulp.watch(['dev/assets/styles/**/*.{scss,css}'], ['styles']);
   gulp.watch(['dev/assets/scripts/**/*.js'], ['client-scripts']);
-  gulp.watch(['dev/public/**/*','dev/views/**/*'], browserSync.reload);
+  gulp.watch(['dev/public/**/*'], browserSync.reload);
+  gulp.watch(['dev/views/**/*'], ['client-scripts', 'reload-browser']);
+});
+
+gulp.task('reload-browser', function () {
+  browserSync.reload();
 });
 
 // Clean Output Directory
