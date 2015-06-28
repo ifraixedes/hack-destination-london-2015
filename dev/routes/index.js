@@ -4,6 +4,7 @@ export default routes;
 
 function routes(config) {
   return {
-    '': require('./home')(config)
+    '/': require('./home')(config),
+    '/api': require('./api')(config)
   };
 }

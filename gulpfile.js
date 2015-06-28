@@ -166,8 +166,8 @@ gulp.task('images', function () {
 
 // Copy Web Fonts To Dist
 gulp.task('fonts', function () {
-  return gulp.src(['dev/public/fonts/**'])
-  .pipe(gulp.dest('dist/built/public/fonts'))
+  return gulp.src(['dev/public/font/**'])
+  .pipe(gulp.dest('dist/built/public/font'))
   .pipe(gulpPlugins.size({ title: 'fonts' }));
 });
 

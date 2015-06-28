@@ -1,9 +1,14 @@
 doctype html
 
-html(lang="en")
+html(lang='en')
   meta(charset='UTF-8')
-  link(rel='stylesheet', href='/styles/main.css')
+  link(rel='stylesheet', href='/styles/materialize.css')
   head
-    title What's your name?
+    title The seat hub
   body
-    block content
+    .container
+      block content
+
+    script(type='text/javascript', src='/scripts/bundle.js')
+    script(type='text/javascript', src='/scripts/jquery-2.1.1.min.js')
+    script(type='text/javascript', src='/scripts/materialize.min.js')

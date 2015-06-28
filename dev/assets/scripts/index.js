@@ -1,1 +1,7 @@
-// This files is required even though is empty otherwise gulp dev crashes
+'use strict';
+
+import hg from 'mercury';
+import {document} from 'global';
+import {app, render} from './app';
+
+hg.app(document.body.querySelector('div.container'), app(), app.render);

@@ -1,6 +1,7 @@
 'use strict';
 
 export default homeRouter;
+
 import {Router as router} from 'express';
 import {expressAsyncWrapper as wrap} from '../lib/util';
 import dg from 'debug';

@@ -32,12 +32,12 @@ function start(config) {
     expressApp.use('/styles', express.static(path.join(__dirname, 'public/styles')));
     expressApp.use('/scripts', express.static(path.join(__dirname, 'public/scripts')));
     expressApp.use('/images', express.static(path.join(__dirname, 'public/images')));
-    expressApp.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
+    expressApp.use('/font', express.static(path.join(__dirname, 'public/font')));
     expressApp.use(middlewares.generalCachingPolicy);
 
     // Routes
     Object.keys(routes).forEach(function (route) {
-      expressApp.use('/' + route, routes[route]);
+      expressApp.use(route, routes[route]);
     });
 
     // Post-send middlewares
